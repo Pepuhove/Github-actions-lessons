@@ -16,8 +16,9 @@ jobs:
         steps:
             - name: Show OS
               shell: bash
-              run: echo "This job is running on a bash"
-              
+              run: |
+                   echo "This job is running on a bash"
+                   echo "Runner OS: $RUNNER_OS"
     mac-cho:
         runs-on: macos-latest
         steps:
