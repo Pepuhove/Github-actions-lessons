@@ -1,7 +1,7 @@
 name: 07-Expressions
 
 on: 
-    push:
+    #push:
     workflow_dispatch:
         inputs:
             debug:
