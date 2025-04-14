@@ -1,2 +1,1 @@
-Repository containing Github Actions course content
-This has been edited.
+Repository containing Github Actions course content.
