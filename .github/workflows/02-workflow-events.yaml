@@ -14,7 +14,7 @@ jobs:
     conditonal:
         runs-on: ubuntu-latest
         needs: events
-        if: ${{ github.event_name }} == "push" || ${{ github.workflow_runner }} == "ubuntu-latest"
+        if: ${{ github.event_name }} == "push" || ${{ github.workflow_runner }} != "ubuntu-latest"
         steps:
             - name: showing conditional event
               run: echo "The workflow is condition is true"
