@@ -1,16 +1,13 @@
-name: 02-Workflow Events
-
+name: workflow_events
 on:
-    # push:
-    # pull_request:
-    #schedule:
-        #- cron: '*/5 * * * *' #it runs every 5 mins
+    push:
+        branches:
+            - main
     workflow_dispatch:
-
-      
 jobs:
-    echo:
+    events:
         runs-on: ubuntu-latest
         steps:
-            - name: Show the trigger
-              run: echo "I've been triggered by a(n) ${{github.event_name}} event"
+            - name: showing workflow event
+              run: echo "The workflow is running on ${{ github.events }} event"
+              
