@@ -1,5 +1,5 @@
 name: 07-Expressions
-run-name: 07-Expressions | DEBUG - ${{ inputs.debug }}
+run-name: 07-Expressions | DEBUG - ${{ inputs.debug }} | CONTINUE - ${{ inputs.continue }}
 on: 
   #push:
   workflow_dispatch:
@@ -7,6 +7,9 @@ on:
       debug:
         type: boolean
         default: false
+      continue:
+        type: boolean
+        default: true
 
 jobs:
     echo:
@@ -24,3 +27,7 @@ jobs:
               run: echo "I was triggered from main"
             - name: Greeting
               run: echo "Hello, World"
+
+            - name: continue or not
+              if: ${{ inputs.continue }}
+              run: echo "Continuing the workflow because continue is true"
