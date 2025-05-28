@@ -1,20 +1,24 @@
 name: workflow_events
+
 on:
-    push:
-        branches:
-            - main
-    workflow_dispatch:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
 jobs:
-    events:
-        runs-on: ubuntu-latest
-        steps:
-            - name: showing workflow event
-              run: echo "The workflow is running on a ${{ github.event_name }} event"
-    
-    conditonal:
-        runs-on: ubuntu-latest
-        needs: events
-        if: ${{ github.event_name }} == "push" || ${{ github.workflow_runner }} != "ubuntu-latest"
-        steps:
-            - name: showing conditional event
-              run: exit 1
+  events:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Showing workflow event
+        run: echo "The workflow is running on a '${{ github.event_name }}' event"
+
+  conditional:
+    runs-on: ubuntu-latest
+    needs: events
+    if: ${{ github.event_name == 'push' || runner.os != 'Linux' }}
+    steps:
+      - name: Showing conditional event
+        run: |
+          echo "Conditional job ran"
+          exit 1
