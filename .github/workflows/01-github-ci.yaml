@@ -8,6 +8,7 @@ on:
 jobs:
     hello:
         runs-on: ubuntu-latest
+        depends-on: hello
         steps:
             - name: say hello
               run: echo "Hi from Pepu"
