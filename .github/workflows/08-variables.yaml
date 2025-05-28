@@ -4,6 +4,7 @@ on:
     # push:
     workflow_dispatch:
 env:
+    NAME: Pepu
     WORKFLOW_VAR: 'I am an env workflow var'
     OVERWRITTEN_VAR: 'I will be oerwritten'
 jobs:
@@ -22,6 +23,7 @@ jobs:
                 echo "Step env var 2: $step_var2"
                 echo "job env var: ${{ env.JOB_VAR }}"
                 echo "workflow env var: ${{ env.WORKFLOW_VAR }}"
+                echo "The name of the user is ${{ env.NAME }}"
             - name: Overwritten job variable
               env:
                 OVERWRITTEN_VAR: 'I have been oerwritten at step level'
