@@ -9,4 +9,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: showing workflow event
-              run: echo "The workflow is running on ${{ github.event }} event"
+              run: echo "The workflow is running on ${{ github.event_name }} event"
