@@ -1,12 +1,12 @@
 name: 07-Expressions
-
+run-name: 07-Expressions | DEBUG - ${{ inputs.debug }}
 on: 
-    #push:
-    workflow_dispatch:
-        inputs:
-            debug:
-                type: boolean
-                default: false
+  #push:
+  workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        default: false
 
 jobs:
     echo:
