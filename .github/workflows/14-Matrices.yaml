@@ -61,13 +61,6 @@ jobs:
     needs: build
     steps:
     - name: check build 
-      run:  echo "Build number is ${{ github.run_number }}"
-      Type: AWS::Neptune::DBParameterGroup
-      Properties:
-        Description: "String" # Required
-        Family: "String" # Required
-        Name: "String"
-        Parameters: "JSON" # Required
-        Tags: 
-          - Key: "String"
-            Value: "String"
+      run:  |
+        echo "Build number is ${{ github.run_number }}"
+        echo "Build id is ${{ github.run_id }}"
