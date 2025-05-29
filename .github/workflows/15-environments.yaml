@@ -18,4 +18,4 @@ jobs:
 
     steps:
       - name: Echo env variable
-        run: echo "Env variable: $my-env-value"
+        run: echo "Env variable = $my-env-value"
