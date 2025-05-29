@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Restore pip cache
+      - name: Restore pip cache (if enabled)
         if: ${{ inputs.use-cache == true }}
         uses: actions/cache@v4
         with:
@@ -29,10 +29,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Install dependencies
+      - name: Install dependencies (if requirements.txt exists)
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            echo "No requirements.txt found, skipping pip install."
+          fi
 
       - name: Run build
-        run: echo "Build complete"
+        run: echo "✅ Build completed"
