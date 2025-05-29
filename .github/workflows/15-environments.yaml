@@ -12,19 +12,9 @@ on:
 jobs:
   echo:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.target-env }}
+    environment: ${{ inputs['target-env'] }}
     env:
-      MY_SECRET_ENV_VAR: ${{ secrets.MY_SECRET_ENV_VAR }}
-
+      MY_ENV_VALUE: ${{ vars.MY_ENV_VALUE }} # This pulls from the environment's defined variables
     steps:
-      - name: Echo environment secret (masked)
-        run: echo "Secret is set (but not displayed for security reasons)"
-        
-      - name: Confirm secret exists
-        run: |
-          if [ -z "$MY_SECRET_ENV_VAR" ]; then
-            echo "❌ Secret is missing"
-            exit 1
-          else
-            echo "✅ Secret is available"
-          fi
+      - name: Echo env var
+        run: echo "Env variable: $MY_ENV_VALUE"
