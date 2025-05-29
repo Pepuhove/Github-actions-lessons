@@ -24,6 +24,7 @@ jobs:
     if: ${{ inputs.target-env == 'prod' }}
     runs-on: ubuntu-latest
     environment: prod
+    needs: build
     env:
       MY_ENV_VALUE: ${{ vars.MY_ENV_VALUE }}
     steps:
