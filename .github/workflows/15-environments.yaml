@@ -1,21 +1,21 @@
 name: 15-Environments
-run-name: 15-Environments | env - ${{ inputs.target-env}}
+run-name: 15-Environments | env - ${{ inputs.target-env }}
+
 on:
-    workflow_dispatch:
-        inputs:
-            target-env:
-                description: "Target environment to deploy"
-                type: environment
-                default: staging
+  workflow_dispatch:
+    inputs:
+      target-env:
+        description: "Target environment to deploy"
+        type: environment
+        default: staging
 
 jobs:
-    echo:
-        runs-on: ubuntu-latest
-        environment: ${{ github.inputs.target-env }}
-        env:
-            my-env-value: ${{ vars.MY_ENV_VALUE }}
-        
-        steps:
-            - name: Echo vars
-              run: echo "Env variable ${{ vars.my-env-value }}"
-              
+  echo:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.target-env }}
+    env:
+      my-env-value: ${{ vars.MY_ENV_VALUE }}
+
+    steps:
+      - name: Echo env variable
+        run: echo "Env variable: $my-env-value"
