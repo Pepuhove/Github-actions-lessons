@@ -7,7 +7,7 @@ on:
       target-env:
         description: "Target environment to deploy"
         type: environment
-        default: staging
+        default: prod
 
 jobs:
   echo:
