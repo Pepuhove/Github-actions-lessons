@@ -17,4 +17,4 @@ jobs:
       MY_ENV_VALUE: ${{ vars.MY_ENV_VALUE }} # This pulls from the environment's defined variables
     steps:
       - name: Echo env var
-        run: echo "Env variable: $MY_ENV_VALUE"
+        run: echo "Env variable = $MY_ENV_VALUE"
