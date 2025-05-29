@@ -1,5 +1,5 @@
 name: 15-Environments
-run-name: 15-Environments | env - ${{ github.environment }}
+run-name: 15-Environments | env - ${{ inputs.target-env}}
 on:
     workflow_dispatch:
         inputs:
